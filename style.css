@@ -1,0 +1,355 @@
+/* =====================================================
+   Registan Travel - one stylesheet for index.html and booking.html
+   Mobile first: base rules = phone, then 768px and 1200px
+   ===================================================== */
+
+/* ===== HOME PAGE ===== */
+
+/* box-sizing for everything (padding and border stay inside the width) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --night: #0B1F4B;
+  --gold: #E0A526;
+  --red: #C0392B;
+  --sand: #FAF6EE;
+  --header-h: 64px;
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-h); /* the fixed header must not hide the content */
+  background: var(--sand);
+  color: #222;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* group selector: all headings share the same font and colour */
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+  color: var(--night);
+}
+
+/* ID selector: fixed header */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  background: var(--night);
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.logo {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* span inside the logo */
+.logo span {
+  color: var(--gold);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 8px 12px;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+
+/* LVHA order: Link, Visited, Hover, Active */
+nav a:link {
+  color: #fff;
+}
+
+nav a:visited {
+  color: #fff;
+}
+
+nav a:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+nav a:active {
+  background: #c28d1c;
+  color: var(--night);
+}
+
+/* current page = gold bottom border */
+nav a.current {
+  border-bottom-color: var(--gold);
+}
+
+/* "Book now" in the header: only from tablet size */
+nav li.nav-cta {
+  display: none;
+}
+
+nav li.nav-cta a {
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+}
+
+/* Hero */
+.hero {
+  padding: 48px 16px;
+  background: linear-gradient(135deg, var(--night), #1f3f8f);
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.hero p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--night);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+/* shrinks slightly when pressed */
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Tour section */
+.section-title {
+  margin: 32px 16px 0;
+  text-align: center;
+}
+
+/* phone: 1 card per row */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.card {
+  position: relative; /* the badge is placed inside the card */
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e6dfcf;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(11, 31, 75, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* the card rises on hover */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(11, 31, 75, 0.2);
+}
+
+.card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  margin-bottom: 12px;
+  background: #ece4d0;
+  border-radius: 8px;
+  font-size: 3.5rem;
+}
+
+.card h3 {
+  margin: 0 0 4px;
+}
+
+.card .meta {
+  margin: 0 0 12px;
+  color: #555;
+}
+
+.price {
+  color: var(--night);
+  font-weight: bold;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  background: var(--gold);
+  color: var(--night);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  padding: 24px 16px;
+  background: var(--night);
+  color: #fff;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* tablet: 2 cards per row */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav li.nav-cta {
+    display: block;
+  }
+}
+
+/* desktop: 3 cards per row */
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== BOOKING PAGE ===== */
+
+.form-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.form-wrap h1 {
+  margin-top: 0;
+}
+
+/* labels above the fields */
+label {
+  display: block;
+  margin: 16px 0 6px;
+  color: var(--night);
+  font-weight: bold;
+}
+
+/* red star added with CSS, not typed in the HTML */
+label.required::after {
+  content: " *";
+  color: var(--red);
+}
+
+/* fields 100% wide */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid #c9c2b0;
+  border-radius: 6px;
+  font: inherit;
+}
+
+/* clear focus style */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(224, 165, 38, 0.4);
+}
+
+/* highlighted field after a validation error */
+input.invalid,
+select.invalid {
+  border-color: var(--red);
+  background: #fdecea;
+}
+
+#total {
+  margin: 20px 0;
+  padding: 12px;
+  background: #fff;
+  border-left: 5px solid var(--gold);
+  font-weight: bold;
+}
+
+form .btn {
+  width: 100%;
+}
+
+.message {
+  display: none;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.message.error {
+  display: block;
+  background: #fdecea;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.message.success {
+  display: block;
+  background: #e6f4ea;
+  color: #1e6b34;
+  border: 1px solid #2e9d4f;
+}

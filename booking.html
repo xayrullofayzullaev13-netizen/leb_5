@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registan Travel | Booking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">Registan <span>Travel</span></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="current" href="booking.html">Booking</a></li>
+          <li class="nav-cta"><a href="booking.html">Book now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="form-wrap">
+    <h1>Book your tour</h1>
+
+    <form id="bookingForm" novalidate>
+      <label class="required" for="name">Full name</label>
+      <input type="text" id="name" name="name" autocomplete="name">
+
+      <label class="required" for="email">Email</label>
+      <input type="text" id="email" name="email" autocomplete="email">
+
+      <label class="required" for="tour">Tour</label>
+      <select id="tour" name="tour">
+        <option value="tashkent">Old Tashkent Walk (35 USD)</option>
+        <option value="samarkand">Registan &amp; Gur-e-Amir (120 USD)</option>
+        <option value="khiva">Khiva Itchan Kala (210 USD)</option>
+      </select>
+
+      <label class="required" for="travellers">Number of travellers (1-12)</label>
+      <input type="number" id="travellers" name="travellers" min="1" max="12" value="1">
+
+      <label for="date">Travel date</label>
+      <input type="date" id="date" name="date">
+
+      <p id="total" aria-live="polite"></p>
+
+      <button class="btn" type="submit">Send request</button>
+    </form>
+
+    <div id="message" class="message" role="alert"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Registan Travel · Tashkent, Uzbekistan (fictional company)</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

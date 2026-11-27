@@ -1,0 +1,75 @@
+/* Registan Travel - brand colours on top of Bootstrap 5 (index-bootstrap.html only) */
+:root {
+  --night: #0B1F4B;
+  --gold: #E0A526;
+}
+
+body {
+  padding-top: 64px; /* fixed navbar */
+  background: #FAF6EE;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: Georgia, serif;
+  color: var(--night);
+}
+
+.navbar {
+  background: var(--night);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background: var(--gold);
+  color: var(--night);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--night), #1f3f8f);
+}
+
+.hero h1 {
+  color: #fff;
+}
+
+.btn-brand {
+  background: var(--night);
+  color: #fff;
+  border: 2px solid var(--gold);
+}
+
+.btn-brand:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+.btn-brand:active {
+  transform: scale(0.95);
+}
+
+.card-tour {
+  transition: transform 0.2s;
+}
+
+.card-tour:hover {
+  transform: translateY(-6px);
+}
+
+.badge-gold {
+  background: var(--gold);
+  color: var(--night);
+}
+
+footer {
+  background: var(--night);
+}
+
+.hero p {
+  max-width: 560px;
+}
